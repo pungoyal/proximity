@@ -1,0 +1,2 @@
+# Logfile created on Tue Jun 01 19:46:48 +0530 2010  [4;36;1mPerson Load (0.7ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 997404298) [0m
+  [4;36;1mPerson Load (0.6ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 997404298) [0m
