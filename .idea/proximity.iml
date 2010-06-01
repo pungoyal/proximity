@@ -42,6 +42,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="haml" version="0" bound="GREATER_OR_EQUAL" git="false" />
+      </requirement>
+      <source from="config/environment.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="rack" version="0" bound="GREATER_OR_EQUAL" git="false" />
       </requirement>
       <source manual="true" />
@@ -82,6 +88,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v2.3.8, /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.8)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.7, /usr/local/lib/ruby/gems/1.8/gems/rake-0.8.7)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3-ruby (v1.2.5, /usr/local/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v2.2.14, /usr/local/lib/ruby/gems/1.8/gems/haml-2.2.14)" level="application" />
   </component>
 </module>
 
