@@ -42,7 +42,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="haml" version="0" bound="GREATER_OR_EQUAL" git="false" />
+        <dependency name="haml" version="2.2.14" bound="EQUAL" git="false" />
       </requirement>
       <source from="config/environment.rb" />
     </requirement>
@@ -64,6 +64,12 @@
         <dependency name="rake" version="0" bound="GREATER_OR_EQUAL" git="false" />
       </requirement>
       <source manual="true" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="sqlite3-ruby" version="0" bound="GREATER_OR_EQUAL" lib="sqlite3" git="false" />
+      </requirement>
+      <source from="config/environment.rb" />
     </requirement>
     <requirement>
       <requirement>
