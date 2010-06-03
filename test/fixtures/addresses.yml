@@ -1,6 +1,4 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
+india:
   line1: MyString
   line2: MyString
   area: MyString
@@ -8,10 +6,10 @@ one:
   state: MyString
   postcode: 
 
-two:
-  line1: MyString
-  line2: MyString
-  area: MyString
-  city: MyString
-  state: MyString
-  postcode: 
+america:
+  line1: 200 E Randolph Street
+  line2: Floor 25th
+  area: Chicago
+  city: Chicago
+  state: IL
+  postcode: 60601

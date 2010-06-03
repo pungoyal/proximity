@@ -1,8 +1,14 @@
 require 'test_helper'
 
 class AddressTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "address belongs to a person" do
+    person = Person.create!
+    address = Address.create!
+
+    address.person = person
+    address.save!
+
+    address = Address.first
+    address.person = person
   end
 end
