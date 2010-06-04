@@ -4,10 +4,11 @@ class PeopleController < ApplicationController
   end
 
   def map
-    
+
   end
 
   def geocode
-    @people = Person.find()
+    uncoded = Address.not_geocoded
+    uncoded.each { |address| address.geocode }
   end
 end

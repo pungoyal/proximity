@@ -1,8 +1,6 @@
 class Person < ActiveRecord::Base
   has_one :address
 
-  named_scope :not_geocoded, :joins => :address, :conditions => {:addresses => {:lat => nil, :lng => nil}}
-
   def gender
     return "F" if female
     return "M"
