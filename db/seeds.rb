@@ -5,3 +5,5 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+address = Address.create! :line1 => "200 E Randolph Street", :line2 => "Floor 25th", :city => "Chicago", :state => "IL", :postcode => 60601
+Person.create! :name => "Puneet Goyal", :female => false, :address => address
