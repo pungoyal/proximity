@@ -1,5 +1,7 @@
 %head
   = stylesheet_link_tag :all, :cache => true
+  = javascript_src_tag "jquery", :cache => true
+  
   %title
     All people
 
@@ -14,9 +16,16 @@
       %th Name
       %th Gender
       %th Address
+      %th Geocoded?
 
     - for person in @people
       %tr
         %td= person.name
         %td= person.gender
-        %td= person.printed_address 
+        %td= person.printed_address
+        %td= person.geocoded
+
+  .geocode
+    %a{:href => 'geocode'}
+      Geocode All
+          

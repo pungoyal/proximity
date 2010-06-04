@@ -6,4 +6,8 @@ class PeopleController < ApplicationController
   def map
     
   end
+
+  def geocode
+    @people = Person.find()
+  end
 end
