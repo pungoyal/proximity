@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  def all
+  def index
     @people = Person.all
   end
 
@@ -7,8 +7,12 @@ class PeopleController < ApplicationController
 
   end
 
+  def show
+    @person = Person.find params[:id]
+  end
+
   def geocode
     Address.not_geocoded.each { |address| address.geocode }
-    redirect_to :action => :all
+    redirect_to :action => :index
   end
 end

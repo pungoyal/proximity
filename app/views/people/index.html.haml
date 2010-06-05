@@ -15,21 +15,18 @@
   %table.people
     %thead
       %th Name
-      %th Gender
-      %th Address
       %th Geocoded?
 
     - for person in @people
       %tr{:class => person.geocoded} 
         %td= person.name
-        %td= person.gender
-        %td= person.printed_address
         %td= person.geocoded
+        %td
+          =link_to "Info", person_url(person.id)
   %br
 
   .geocode
     Click
-    %a{:href => 'geocode'}
-      here
+    =link_to "here", geocode_url
     to map all.
           
