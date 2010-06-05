@@ -13,6 +13,6 @@ class PeopleController < ApplicationController
 
   def geocode
     Address.not_geocoded.each { |address| address.geocode }
-    redirect_to :action => :index
+    redirect_to :action => :map
   end
 end
