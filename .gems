@@ -1,0 +1,4 @@
+rails -v 2.3.8
+pg
+haml -v 2.2.14
+wrest
