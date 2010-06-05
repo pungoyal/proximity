@@ -11,6 +11,7 @@
   .text
     Who all are there?
 
+  %br
   %table.people
     %thead
       %th Name
@@ -24,8 +25,11 @@
         %td= person.gender
         %td= person.printed_address
         %td= person.geocoded
+  %br
 
   .geocode
+    Click
     %a{:href => 'geocode'}
-      Geocode All
+      here
+    to map all.
           
