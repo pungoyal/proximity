@@ -11,15 +11,15 @@
   .text
     Who all are there?
 
-  %table{:cellpadding => 5, :bgcolor => "#FFFF66"}
-    %tr
+  %table.people
+    %thead
       %th Name
       %th Gender
       %th Address
       %th Geocoded?
 
     - for person in @people
-      %tr
+      %tr{:class => person.geocoded} 
         %td= person.name
         %td= person.gender
         %td= person.printed_address

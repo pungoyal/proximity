@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
   end
 
   def geocode
-    uncoded = Address.not_geocoded
-    uncoded.each { |address| address.geocode }
+    Address.not_geocoded.each { |address| address.geocode }
+    redirect_to :action => :all
   end
 end
