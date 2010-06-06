@@ -6,12 +6,15 @@ $(document).ready(function () {
         mapTypeControl: false
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
+    showMarkerAt(map, 12.958886129203817, 77.64345449829102);
+    showMarkerAt(map, 12.9335426, 77.6292697);
+});
 
-    var marker = new google.maps.Marker({
+function showMarkerAt(map, lat, lng) {
+    var b1 = new google.maps.Marker({
         map: map,
-        title: 'Marker #',
-        position: new google.maps.LatLng(12.971606, 77.594376),
-        draggable: true
+        title: 'Banagalore ONE',
+        position: new google.maps.LatLng(lat, lng)
     });
-    marker.setVisible(true);
-});                                           
+    b1.setVisible(true);
+};
