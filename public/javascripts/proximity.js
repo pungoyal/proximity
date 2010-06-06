@@ -1,4 +1,4 @@
-window.onload = function() {
+$(document).ready(function () {
     var options = {
         zoom: 6,
         center: new google.maps.LatLng(5.8, 1.0),
@@ -6,4 +6,4 @@ window.onload = function() {
         mapTypeControl: false
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
-}                                           
+});                                           

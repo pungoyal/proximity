@@ -1,8 +1,9 @@
 %head
+  = javascript_src_tag "jquery", :cache => true
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}
+  = javascript_src_tag "proximity", :cache => true
 
   = stylesheet_link_tag 'main'
-  = javascript_src_tag "proximity", :cache => true
 
 %body
   %h1
