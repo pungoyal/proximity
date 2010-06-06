@@ -18,14 +18,15 @@ ActiveRecord::Schema.define(:version => 20100603163458) do
     t.string   "city"
     t.string   "state"
     t.integer  "postcode"
-    t.float    "lat"
-    t.float    "lng"
+    t.decimal  "lat"
+    t.decimal  "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
   end
 
   create_table "people", :force => true do |t|
+    t.integer  "ps_id"
     t.string   "name"
     t.boolean  "female"
     t.datetime "created_at"

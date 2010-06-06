@@ -14,11 +14,13 @@
   %br
   %table.people
     %thead
+      %th People Soft ID
       %th Name
       %th Geocoded?
 
     - for person in @people
       %tr{:class => person.geocoded} 
+        %td= person.ps_id
         %td= person.name
         %td= person.geocoded
         %td

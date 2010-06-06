@@ -1,6 +1,7 @@
 class CreatePeople < ActiveRecord::Migration
   def self.up
     create_table :people do |t|
+      t.integer :ps_id
       t.string :name
       t.boolean :female
 
