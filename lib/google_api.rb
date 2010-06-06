@@ -16,14 +16,24 @@ module GoogleApi
       maps_data = uri.get(:sensor => @@sensor, :address => address.to_search)
 
       response = GoogleApi::MapsResponse.new maps_data.deserialise
-      address.lng = response.lng
-      address.lat = response.lat
-      address.save!
+      if (response.good?)
+        address.lng = response.lng
+        address.lat = response.lat
+        address.save!
+      end
     end
   end
 
   class MapsResponse
+    @@GOOD = "OK"
+    @@BAD = "ZERO_RESULTS"
+
+    def good?
+      @status == @@GOOD
+    end
+
     def initialize result
+      @status = result["status"]
       @result = result["results"][0]
     end
 
