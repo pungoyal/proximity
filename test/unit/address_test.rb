@@ -29,6 +29,13 @@ class AddressTest < ActiveSupport::TestCase
     assert_equal true, a.location.exact
   end
 
+  test "empty address is set to bangalore" do
+    a = Address.create!
+    a.geocode
+    assert a.geocoded?
+    assert a.location.is_default?
+  end
+
   test "does not retry geocoding indefinitely" do
     a = Address.create! :city => "Bangalore", :state => "Karnataka"
     a.geocode

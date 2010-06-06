@@ -7,6 +7,8 @@ class PeopleController < ApplicationController
     result = {}
 
     Person.all.each do |person|
+      next if !person.address.geocoded?
+
       marker = {}
       marker["name"] = person.name
       marker["lat"] = person.address.location.lat
