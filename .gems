@@ -1,6 +1,5 @@
 rails -v 2.3.8
 pg
-sqlite3-ruby
 libxml-ruby
 haml -v 2.2.14
 hassle
