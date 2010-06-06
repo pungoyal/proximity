@@ -7,7 +7,7 @@ $(document).ready(function () {
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    showMarkerAt(map, 12.958886129203817, 77.64345449829102);
+    createCenter(map);
 
     $.ajax({
         url: '/people/all',
@@ -23,6 +23,21 @@ $(document).ready(function () {
     });
 
 });
+
+function createCenter(map) {
+    var b1 = new google.maps.Marker({
+        map: map,
+        title: "Bangalore ONE",
+        position: new google.maps.LatLng(12.958886129203817, 77.64345449829102)
+    });
+    b1.setVisible(true);
+
+    var circle = new google.maps.Circle({
+        map: map,
+        radius: 5000
+    });
+    circle.bindTo('center', b1, 'position');
+}
 
 function showMarkerAt(map, person) {
     var marker = new google.maps.Marker({

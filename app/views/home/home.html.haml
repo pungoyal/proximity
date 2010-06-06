@@ -10,7 +10,7 @@
   -form_tag(parse_path, :method => "post") do
     =label_tag(:csv, "Search for:", :class => 'text')
     %br
-    =text_area_tag :csv, nil, :size => "150x40", :class => 'csvbox'
+    =text_area_tag :csv, nil, :size => "150x40"
     %br
     %br
     =submit_tag("Upload")

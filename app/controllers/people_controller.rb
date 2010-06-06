@@ -4,10 +4,9 @@ class PeopleController < ApplicationController
   end
 
   def all
-    people = Person.all
     result = {}
 
-    people.each do |person|
+    Person.all.each do |person|
       marker = {}
       marker["name"] = person.name
       marker["lat"] = person.address.location.lat

@@ -13,4 +13,22 @@
     Where is who?
   .text
     Measuring from B1
-  #map
+  .contents
+
+    #map
+
+    .inputs
+      .map-options
+        Map Options
+      Select the office - 
+      %br
+      %input.radio#b1{:type=>'radio', :name => 'office'}
+        Bangalore ONE
+      %br
+      %input.radio#b2{:type=>'radio', :name => 'office'}
+        Bangalore TWO
+      .distance
+        Radius (km)
+        =text_field "radius", "", :size => 5
+      .submit
+        =submit_tag "Reload Map"
