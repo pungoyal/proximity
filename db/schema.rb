@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100606080315) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(:version => 20100606080315) do
     t.string   "city"
     t.string   "state"
     t.integer  "postcode"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id"
   end
 
   create_table "locations", :force => true do |t|
-    t.decimal  "lat",        :precision => 10, :scale => 3
-    t.decimal  "lng",        :precision => 10, :scale => 3
+    t.decimal  "lat",        :precision => 15, :scale => 3
+    t.decimal  "lng",        :precision => 15, :scale => 3
     t.boolean  "exact",                                     :default => false
     t.integer  "address_id"
     t.datetime "created_at"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20100606080315) do
   end
 
   create_table "people", :force => true do |t|
+    t.integer  "ps_id"
     t.string   "name"
     t.boolean  "female"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "ps_id"
   end
 
 end
