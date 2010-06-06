@@ -1,6 +1,7 @@
 module PeopleHelper
   def yes_or_geocode address
-    return "Yes" if address.geocoded?
-    link_to "No", geocode_url(address.id)
+    return link_to("No", geocode_url(address.id)) if !address.geocoded?
+    return "Yes*" if !address.location.exact
+    return "Yes"
   end
 end

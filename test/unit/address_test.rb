@@ -11,6 +11,20 @@ class AddressTest < ActiveSupport::TestCase
     assert a.location.is_default? == false
   end
 
+  test "bad address maps to Bangalore default location" do
+    address = Address.new :line1 => "S T Bed Layout", :area => "Koramangala 4th Block", :city => "Bangalore", :state => "Karnataka"
+  end
+
+  test "mark approximate locations" do
+    a = Address.new :line1 => "S T Bed Layout", :area => "Koramangala 4th Block", :city => "Bangalore", :state => "Karnataka"
+    a.geocode
+    assert_equal false, a.location.exact
+
+    a = Address.new :line1 => "200 E Randolph Street", :city => "Chicago", :state => "IL"
+    a.geocode
+    assert_equal true, a.location.exact
+  end
+
   test "does not retry geocoding indefinitely" do
     a = Address.create! :state => "Karnataka"
     a.geocode
