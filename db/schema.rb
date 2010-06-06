@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20100606080315) do
   create_table "locations", :force => true do |t|
     t.decimal  "lat",        :precision => 10, :scale => 3
     t.decimal  "lng",        :precision => 10, :scale => 3
-    t.boolean  "exact",                                     :default => true
+    t.boolean  "exact",                                     :default => false
     t.integer  "address_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,7 +3,7 @@ class CreateLocations < ActiveRecord::Migration
     create_table :locations do |t|
       t.decimal :lat, :scale => 3, :precision => 10
       t.decimal :lng, :scale => 3, :precision => 10
-      t.boolean :exact, :default => true
+      t.boolean :exact, :default => false
       t.integer :address_id
 
       t.timestamps
