@@ -16,6 +16,7 @@ class AddressTest < ActiveSupport::TestCase
                     :area => "Viman Nagar", :city => "Bangalore", :state => "Maharashtra"
     a.geocode
     assert a.location.is_default?
+    assert_equal false, a.location.exact
   end
 
   test "mark approximate locations" do

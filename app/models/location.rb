@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  BANGALORE = Location.new(:lat => 12.971606, :lng => 77.594376)
+  BANGALORE = Location.new(:lat => 12.971606, :lng => 77.594376, :exact =>false)
   KARNATAKA = Location.new(:lat => 15.3172775, :lng => 75.7138884)
 
   def to_s
