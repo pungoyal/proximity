@@ -13,8 +13,8 @@ $(document).ready(function () {
         url: '/people/all',
         type: 'GET',
         success: function(data, status, xhr) {
-            $.each(data, function (key, location) {
-                showMarkerAt(map, location['location']['lat'], location['location']['lng']);
+            $.each(data, function (key, person) {
+                showMarkerAt(map, person);
             });
         },
         error: function(xhr) {
@@ -24,12 +24,12 @@ $(document).ready(function () {
 
 });
 
-function showMarkerAt(map, lat, lng) {
+function showMarkerAt(map, person) {
     var marker = new google.maps.Marker({
         map: map,
-        title: 'Banagalore ONE',
-        position: new google.maps.LatLng(lat, lng)
+        title: person['name'],
+        position: new google.maps.LatLng(person['lat'], person['lng'])
     });
+
     marker.setVisible(true);
 }
-;

@@ -4,8 +4,19 @@ class PeopleController < ApplicationController
   end
 
   def all
-    p Location.all.to_json
-    render :json => Location.all.to_json
+    people = Person.all
+    result = {}
+
+    people.each do |person|
+      marker = {}
+      marker["name"] = person.name
+      marker["lat"] = person.address.location.lat
+      marker["lng"] = person.address.location.lng
+
+      result[person.ps_id] = marker
+    end
+
+    render :json => result.to_json
   end
 
   def map
