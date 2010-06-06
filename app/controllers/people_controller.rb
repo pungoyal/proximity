@@ -4,7 +4,6 @@ class PeopleController < ApplicationController
   end
 
   def map
-
   end
 
   def show

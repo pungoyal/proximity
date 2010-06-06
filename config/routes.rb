@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   # This route can be invoked with purchase_url(:id => product.id)
   map.geocode 'people/geocode', :controller => 'people', :action => 'geocode'
   map.map 'people/map', :controller => 'people', :action => 'map'
+  map.parse 'home/parse', :controller => 'home', :action => 'parse'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
@@ -35,13 +36,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/_index.html.
   # map.root :controller => "welcome"
-  map.root :controller => 'people', :action => 'home'
+  map.root :controller => 'home', :action => 'home'
 
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+#  map.connect ':controller/:action/:id'
+#  map.connect ':controller/:action/:id.:format'
 end
