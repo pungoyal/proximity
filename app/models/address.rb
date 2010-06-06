@@ -16,7 +16,7 @@ class Address < ActiveRecord::Base
     return if geocoded?
 
     google_maps = GoogleApi::MapsRequest.new
-    to_search = [line1, line2, area, city, state].compact
+    to_search = [line1, line2, area, city].compact
     location = google_maps.geocode(to_search.join(','))
 
     while !location.nil? and location.is_default? and to_search.count>1 do

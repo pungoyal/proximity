@@ -30,11 +30,6 @@ class AddressTest < ActiveSupport::TestCase
   end
 
   test "does not retry geocoding indefinitely" do
-    a = Address.create! :state => "Karnataka"
-    a.geocode
-    assert a.geocoded?
-    assert a.location.is?(Location::KARNATAKA)
-
     a = Address.create! :city => "Bangalore", :state => "Karnataka"
     a.geocode
     assert a.geocoded?
