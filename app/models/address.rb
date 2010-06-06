@@ -2,23 +2,29 @@ class Address < ActiveRecord::Base
   include GoogleApi
 
   belongs_to :person
-
-  named_scope :not_geocoded, :conditions => {:lat => nil, :lng => nil}
+  has_one :location, :dependent => :destroy
 
   def to_s
-    return (to_search + ", " + postcode.to_s).gsub(/ ,/, '')
-  end
-
-  def to_search
-    return (line1.to_s + ", " + line2.to_s + ", " + area.to_s + ", " + city.to_s + ", " + state.to_s).gsub(/ ,/, '')
+    [line1, line2, area, city, postcode, state].compact.join(", ")
   end
 
   def geocoded?
-    return (!lat.nil? and !lng.nil?)
+    !location.nil?
   end
 
   def geocode
-    maps = GoogleApi::MapsRequest.new
-    maps.geocode self
+    return if geocoded?
+
+    google_maps = GoogleApi::MapsRequest.new
+    to_search = [line1, line2, area, city, state].compact
+    location = Location::BANGALORE
+
+    while location.is_default? and !to_search.blank? do
+      location = google_maps.geocode(to_search.join(','))
+      to_search.shift
+    end
+
+    self.location = location
+    save!
   end
 end

@@ -12,7 +12,6 @@ class Person < ActiveRecord::Base
   end
 
   def geocoded
-    return "No" if address.nil?
     return address.geocoded? ? "Yes" : "No"
   end
 end

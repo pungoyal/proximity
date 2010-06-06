@@ -11,7 +11,13 @@ class PeopleController < ApplicationController
   end
 
   def geocode
-    Address.not_geocoded.each { |address| address.geocode }
+    to_geocode = params[:id]
+    Address.find(to_geocode).geocode
+    redirect_to :action => :index
+  end
+
+  def geocode_all
+    Address.all.each { |address| address.geocode }
     redirect_to :action => :map
   end
 end

@@ -13,14 +13,9 @@ module GoogleApi
 
     def geocode address
       uri = @@google_maps_url.to_uri
-      maps_data = uri.get(:sensor => @@sensor, :address => address.to_search)
-
+      maps_data = uri.get(:sensor => @@sensor, :address => address)
       response = GoogleApi::MapsResponse.new maps_data.deserialise
-      if (response.good?)
-        address.lng = response.lng
-        address.lat = response.lat
-        address.save!
-      end
+      return Location.new :lat => response.lat, :lng => response.lng if response.good?
     end
   end
 

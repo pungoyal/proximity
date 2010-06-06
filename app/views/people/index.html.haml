@@ -11,6 +11,12 @@
     Who all are there?
 
   %br
+  .geocode
+    (Click
+    =link_to "here", geocode_all_url
+    to map all.)
+
+  %br
   %table.people
     %thead
       %th People Soft ID
@@ -21,13 +27,7 @@
       %tr{:class => person.geocoded} 
         %td= person.ps_id
         %td= person.name
-        %td= person.geocoded
+        %td= yes_or_geocode(person.address)
         %td
           =link_to "Info", person_url(person.id)
   %br
-
-  .geocode
-    Click
-    =link_to "here", geocode_url
-    to map all.
-          
