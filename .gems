@@ -4,5 +4,5 @@ sqlite3-ruby
 libxml-ruby
 haml -v 2.2.14
 hassle
-wrest
 fastercsv
+wrest
