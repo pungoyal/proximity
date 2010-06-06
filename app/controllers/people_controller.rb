@@ -3,6 +3,11 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
+  def all
+    p Location.all.to_json
+    render :json => Location.all.to_json
+  end
+
   def map
   end
 

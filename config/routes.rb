@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.geocode_all 'people/geocode/all', :controller => 'people', :action => 'geocode_all'
   map.geocode 'people/geocode/:id', :controller => 'people', :action => 'geocode'
   map.map 'people/map', :controller => 'people', :action => 'map'
+  map.map 'people/all', :controller => 'people', :action => 'all'
+
   map.parse 'home/parse', :controller => 'home', :action => 'parse'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
