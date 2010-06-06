@@ -16,6 +16,7 @@ module GoogleApi
       maps_data = uri.get(:sensor => @@sensor, :address => address)
       response = GoogleApi::MapsResponse.new maps_data.deserialise
       return Location.new :lat => response.lat, :lng => response.lng, :exact => true if response.good?
+      return Location.new :exact => false
     end
   end
 

@@ -28,7 +28,10 @@ function createCenter(map) {
     var b1 = new google.maps.Marker({
         map: map,
         title: "Bangalore ONE",
-        position: new google.maps.LatLng(12.958886129203817, 77.64345449829102)
+        position: new google.maps.LatLng(12.958886129203817, 77.64345449829102),
+        icon: '/images/chart.png',
+        visible: true,
+        zIndex: 10
     });
     b1.setVisible(true);
 
@@ -43,8 +46,8 @@ function showMarkerAt(map, person) {
     var marker = new google.maps.Marker({
         map: map,
         title: person['name'],
-        position: new google.maps.LatLng(person['lat'], person['lng'])
+        position: new google.maps.LatLng(person['lat'], person['lng']),
+        visible: true,
+        zIndex: 1
     });
-
-    marker.setVisible(true);
 }
