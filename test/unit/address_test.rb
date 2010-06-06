@@ -12,7 +12,10 @@ class AddressTest < ActiveSupport::TestCase
   end
 
   test "bad address maps to Bangalore default location" do
-    address = Address.new :line1 => "S T Bed Layout", :area => "Koramangala 4th Block", :city => "Bangalore", :state => "Karnataka"
+    a = Address.new :line1 => "A 4, 704,", :line2 => "Lunkad Amazon, Nr Symbosis Int. School",
+                    :area => "Viman Nagar", :city => "Bangalore", :state => "Maharashtra"
+    a.geocode
+    assert a.location.is_default?
   end
 
   test "mark approximate locations" do
