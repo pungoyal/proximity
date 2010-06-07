@@ -22,8 +22,13 @@ $(document).ready(function () {
         }
     });
 
+	$('.submit').click(function(){
+		var radius = $('#radius_').val();
+		circle.setRadius(parseInt(radius));
+	});
 });
 
+var circle;
 function createCenter(map) {
     var b1 = new google.maps.Marker({
         map: map,
@@ -35,7 +40,7 @@ function createCenter(map) {
     });
     b1.setVisible(true);
 
-    var circle = new google.maps.Circle({
+    circle = new google.maps.Circle({
         map: map,
         radius: 5000
     });
