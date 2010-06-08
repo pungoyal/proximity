@@ -5,7 +5,6 @@ require 'uri'
 require 'open-uri'
 require 'json'
 
-
 module GoogleApi
   class MapsRequest
     @@google_maps_url = "http://maps.google.com/maps/api/geocode/json"

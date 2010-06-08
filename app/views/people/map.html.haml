@@ -2,7 +2,6 @@
   = javascript_src_tag "jquery", :cache => true
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}
   = javascript_src_tag "proximity", :cache => true
-
   = stylesheet_link_tag 'main'
 
   %title
@@ -14,20 +13,20 @@
   .text
     Measuring from B1
   .contents
-
     #map
-
     .inputs
       .map-options
         Map Options
       Select the office - 
       %br
-      %input.radio#b1{:type=>'radio', :name => 'office'}
+      %input.radio#b1{:type=>'radio', :name => 'office', :lat => '12.958886129203817', :lng => '77.64345449829102', :checked => true}
         Bangalore ONE
       %br
-      %input.radio#b2{:type=>'radio', :name => 'office'}
+      %input.radio#b2{:type=>'radio', :name => 'office', :lat => '12.92885064885335', :lng => '77.62857896709443'}
         Bangalore TWO
       .distance
-        Radius (km)
-        =text_field "radius", "", :size => 5
-      .submit Reload Map
+        Radius (mts)
+        =text_field "radius", "", :size => 5, :value => 5000
+      .submit
+        %a{:href => '#'}
+          Reload Map
