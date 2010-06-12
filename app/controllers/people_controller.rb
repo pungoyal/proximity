@@ -4,8 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def all
-    result = {}
-
+    people = {}
     Person.all.each do |person|
       next if !person.address.geocoded?
 
@@ -14,9 +13,23 @@ class PeopleController < ApplicationController
       marker["lat"] = person.address.location.lat
       marker["lng"] = person.address.location.lng
 
-      result[person.ps_id] = marker
+      people[person.ps_id] = marker
     end
 
+    offices = {}
+    Office.all.each do |office|
+      marker = {}
+      marker["name"] = office.name
+      marker["lat"] = office.location.lat
+      marker["lng"] = office.location.lng
+      offices[office.id] = marker
+    end
+
+    result = {}
+    result["people"] = people
+    result["offices"] = offices
+
+    p result.to_json
     render :json => result.to_json
   end
 

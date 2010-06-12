@@ -1,10 +1,6 @@
 require 'rubygems'
 require 'wrest'
 
-require 'uri'
-require 'open-uri'
-require 'json'
-
 module MapsApi
   class MapsRequest
     @@geocode_url = "http://maps.google.com/maps/api/geocode/json"
@@ -40,21 +36,6 @@ module MapsApi
     end
   end
 
-  class DirectionsResponse < MapsResponse
-    def initialize result
-      super(result)
-      @result = result["routes"][0]["legs"][0]
-    end
-
-    def distance
-      @result["distance"]
-    end
-
-    def end_location
-      @result["end_location"]
-    end
-  end
-
   class GeocodeResponse < MapsResponse
     def initialize result
       super(result)
@@ -72,6 +53,21 @@ module MapsApi
     private
     def location
       @result["geometry"]["location"]
+    end
+  end
+
+  class DirectionsResponse < MapsResponse
+    def initialize result
+      super(result)
+      @result = result["routes"][0]["legs"][0]
+    end
+
+    def distance
+      @result["distance"]
+    end
+
+    def end_location
+      @result["end_location"]
     end
   end
 end

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   # Replace this with your real tests.
-  test "the truth" do
+  test "rendered json has people and offices" do
     assert true
   end
 end

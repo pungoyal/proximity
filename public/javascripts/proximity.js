@@ -13,9 +13,10 @@ $(document).ready(function () {
         url: '/people/all',
         type: 'GET',
         success: function(data, status, xhr) {
-            $.each(data, function (key, person) {
+            $.each(data["people"], function (key, person) {
                 showMarkerAt(map, person);
             });
+            offices = data["offices"];
         },
         error: function(xhr) {
             alert("Crap! Call 9013324771");
@@ -30,6 +31,7 @@ $(document).ready(function () {
     });
 });
 
+var offices;
 var circle;
 function createCenter(map) {
     var b1 = new google.maps.Marker({
