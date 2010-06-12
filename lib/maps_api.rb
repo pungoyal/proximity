@@ -13,6 +13,7 @@ module MapsApi
       response = GeocodeResponse.new maps_data
 
       return Location.new :lat => response.lat, :lng => response.lng, :exact => true if response.good?
+      return Location.new :exact => true
     end
 
     def distance from, to
