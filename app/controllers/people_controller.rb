@@ -29,7 +29,6 @@ class PeopleController < ApplicationController
     result["people"] = people
     result["offices"] = offices
 
-    p result.to_json
     render :json => result.to_json
   end
 
