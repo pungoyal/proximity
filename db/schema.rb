@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "state"
     t.integer  "postcode"
     t.integer  "person_id"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,7 +28,13 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "lat"
     t.string   "lng"
     t.boolean  "exact",      :default => false
-    t.integer  "address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "offices", :force => true do |t|
+    t.string   "name"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

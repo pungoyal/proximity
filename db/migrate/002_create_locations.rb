@@ -4,7 +4,6 @@ class CreateLocations < ActiveRecord::Migration
       t.string :lat
       t.string :lng
       t.boolean :exact, :default => false
-      t.integer :address_id
 
       t.timestamps
     end

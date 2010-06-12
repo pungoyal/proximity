@@ -2,7 +2,7 @@ class Address < ActiveRecord::Base
   include GoogleApi
 
   belongs_to :person
-  has_one :location, :dependent => :destroy
+  belongs_to :location, :dependent => :destroy
 
   def to_s
     [line1, line2, area, city, postcode, state].compact.join(", ")
