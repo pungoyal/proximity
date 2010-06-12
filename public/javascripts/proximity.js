@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $('.radio').attr('checked', true);
+
     var options = {
         zoom: 12,
         center: new google.maps.LatLng(12.95945073019842, 77.64325065040589),
@@ -25,16 +27,16 @@ $(document).ready(function () {
     });
 
     $('.submit').click(function() {
-        var selectedOffice = $('.radio:checked');
         if (center != null) {
             center.setVisible(false);
         }
-        center = offices[selectedOffice.attr('id')];
-        center.setVisible(true);
-
         if (circle != null) {
             circle.setMap(null);
         }
+
+        center = offices[$('.radio:checked').attr('id')];
+        center.setVisible(true);
+
         circle = new google.maps.Circle({
             map: map,
             radius: parseInt($('#radius_').val())
