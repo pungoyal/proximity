@@ -1,9 +1,9 @@
 require '../../test_helper'
 
-
-describe GoogleApi do
+describe MapsApi  do
   it "should get lat and long from google maps api" do
-    request = GoogleApi::MapsRequest.new
-    response = request.geocode Address.new :area=>"Janak Puri"
+    request = MapsApi::MapsRequest.new
+    location = request.geocode "Janak Puri, New Delhi"
+    p location
   end
 end

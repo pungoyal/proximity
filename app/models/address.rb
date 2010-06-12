@@ -1,5 +1,5 @@
 class Address < ActiveRecord::Base
-  include GoogleApi
+  include MapsApi
 
   belongs_to :person
   belongs_to :location, :dependent => :destroy
@@ -15,7 +15,7 @@ class Address < ActiveRecord::Base
   def geocode
     return if geocoded?
 
-    google_maps = GoogleApi::MapsRequest.new
+    google_maps = MapsApi::MapsRequest.new
     to_search = [line1, line2, area, city].compact
     location = google_maps.geocode(to_search.join(','))
 
