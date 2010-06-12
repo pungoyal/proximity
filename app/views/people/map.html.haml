@@ -19,11 +19,11 @@
         Map Options
       Select the office - 
       %br
-      %input.radio#1{:type=>'radio', :name => 'office', :checked => true}
-        Bangalore ONE
-      %br
-      %input.radio#2{:type=>'radio', :name => 'office'}
-        Bangalore TWO
+      - for office in @offices
+        %input.radio{:type=>'radio', :name => 'office', :id => office.id}
+        =office.name
+        %br
+
       .distance
         Radius (mts)
         =text_field "radius", "", :size => 5, :value => 5000

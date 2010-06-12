@@ -7,56 +7,62 @@ $(document).ready(function () {
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    createCenter(map);
-
     $.ajax({
         url: '/people/all',
         type: 'GET',
         success: function(data, status, xhr) {
             $.each(data["people"], function (key, person) {
-                showMarkerAt(map, person);
+                people[key] = createPerson(map, person);
             });
-            offices = data["offices"];
+
+            $.each(data["offices"], function (key, office) {
+                offices[key] = createOffice(map, office);
+            });
         },
         error: function(xhr) {
-            alert("Crap! Call 9013324771");
+            alert("Crap! Call Puneet.");
         }
     });
 
     $('.submit').click(function() {
-        var radius = $('#radius_').val();
-        circle.setRadius(parseInt(radius));
+        var selectedOffice = $('.radio:checked');
+        if (center != null) {
+            center.setVisible(false);
+        }
+        center = offices[selectedOffice.attr('id')];
+        center.setVisible(true);
 
-        var center = $('')
+        if (circle != null) {
+            circle.setMap(null);
+        }
+        circle = new google.maps.Circle({
+            map: map,
+            radius: parseInt($('#radius_').val())
+        });
+        circle.bindTo('center', center, 'position');
     });
 });
 
-var offices;
-var circle;
-function createCenter(map) {
-    var b1 = new google.maps.Marker({
-        map: map,
-        title: "Bangalore ONE",
-        position: new google.maps.LatLng(12.958886129203817, 77.64345449829102),
-        icon: '/images/chart.png',
-        visible: true,
-        zIndex: 10
-    });
-    b1.setVisible(true);
-
-    circle = new google.maps.Circle({
-        map: map,
-        radius: 5000
-    });
-    circle.bindTo('center', b1, 'position');
-}
-
-function showMarkerAt(map, person) {
-    var marker = new google.maps.Marker({
+function createPerson(map, person) {
+    return new google.maps.Marker({
         map: map,
         title: person['name'],
         position: new google.maps.LatLng(person['lat'], person['lng']),
-        visible: true,
         zIndex: 1
     });
 }
+
+function createOffice(map, office) {
+    return new google.maps.Marker({
+        map: map,
+        title: office['name'],
+        position: new google.maps.LatLng(office['lat'], office['lng']),
+        icon: '/images/chart.png',
+        visible: false,
+        zIndex: 10
+    });
+}
+
+var people = {};
+var offices = {};
+var circle, center;

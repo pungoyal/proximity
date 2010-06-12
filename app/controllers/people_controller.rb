@@ -34,6 +34,7 @@ class PeopleController < ApplicationController
   end
 
   def map
+    @offices = Office.all
   end
 
   def show
