@@ -27,6 +27,7 @@ class PeopleController < ApplicationController
     @person = Person.find params[:id]
   end
 
+#  to go into address controller
   def geocode
     to_geocode = params[:id]
     Address.find(to_geocode).geocode

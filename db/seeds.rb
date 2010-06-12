@@ -5,3 +5,12 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+location = Location.create! :lat => '12.958886129203817', :lat => '77.64345449829102', :exact => true
+Address.create! :area => 'Bangalore One', :location => location
+
+location = Location.create! :lat => '12.92885064885335', :lat => '77.62857896709443', :exact => true
+Address.create! :area => 'Bangalore Two', :location => location
+
+address = Address.create! :line1 => "B1A/20A", :area => 'Janak Puri', :city => "New Delhi", :state => "Delhi"
+Person.create! :ps_id => 11116, :name => "Puneet", :female => false, :address => address

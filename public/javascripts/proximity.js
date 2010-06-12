@@ -22,10 +22,12 @@ $(document).ready(function () {
         }
     });
 
-	$('.submit').click(function(){
-		var radius = $('#radius_').val();
-		circle.setRadius(parseInt(radius));
-	});
+    $('.submit').click(function() {
+        var radius = $('#radius_').val();
+        circle.setRadius(parseInt(radius));
+
+        var center = $('')
+    });
 });
 
 var circle;
